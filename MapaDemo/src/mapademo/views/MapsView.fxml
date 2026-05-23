@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<SplitPane fx:controller="mapademo.controllers.MapsController" stylesheets="@../../resources/estilos.css" xmlns="http://javafx.com/javafx/21.0.10" xmlns:fx="http://javafx.com/fxml/1" dividerPositions="0.48">
+                            <items>
+                                <VBox minWidth="500.0" prefWidth="560.0" spacing="8.0" styleClass="content-panel">
+                                    <children>
+                                        <Label fx:id="mapsTitleLabel" styleClass="section-title" text="Mapas registrados" />
+                                        <TableView fx:id="mapRegionTableView" minWidth="470.0" prefHeight="420.0" prefWidth="560.0" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="mapNameColumn" prefWidth="140.0" text="Nombre" />
+                                                <TableColumn fx:id="mapImageColumn" prefWidth="210.0" text="Imagen" />
+                                                <TableColumn fx:id="mapBoundsColumn" prefWidth="300.0" text="Bounding box" />
+                                            </columns>
+                                        </TableView>
+                                        <HBox spacing="8.0">
+                                            <children>
+                                                <Button fx:id="refreshMapsButton" mnemonicParsing="false" onAction="#onRefreshMaps" styleClass="secondary-button" text="Refrescar" />
+                                                <Button fx:id="removeMapRegionButton" mnemonicParsing="false" onAction="#onRemoveMapRegion" styleClass="danger-button" text="Eliminar mapa no usado" />
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                                    </padding>
+                                </VBox>
+
+                                <VBox minWidth="460.0" prefWidth="560.0" spacing="10.0" styleClass="form-panel">
+                                    <children>
+                                        <Label fx:id="addMapTitleLabel" styleClass="section-title" text="Agregar nuevo mapa" />
+                                        <GridPane hgap="10.0" maxWidth="620.0" styleClass="form-grid" vgap="6.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints halignment="RIGHT" minWidth="130.0" prefWidth="130.0" />
+                                                <ColumnConstraints hgrow="ALWAYS" maxWidth="460.0" minWidth="260.0" prefWidth="420.0" />
+                                            </columnConstraints>
+                                            <children>
+                                                <Label fx:id="mapNameTextLabel" text="Nombre *:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                                <TextField fx:id="mapNameField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                                <Label fx:id="mapNameErrorLabel" styleClass="field-error" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label fx:id="mapImageTextLabel" text="Imagen JPG *:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                                                <HBox spacing="6.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                    <children>
+                                                        <TextField fx:id="mapImagePathField" HBox.hgrow="ALWAYS" />
+                                                        <Button fx:id="browseMapImageButton" mnemonicParsing="false" onAction="#onBrowseMapImage" styleClass="secondary-button" text="..." />
+                                                    </children>
+                                                </HBox>
+                                                <Label fx:id="mapImageErrorLabel" styleClass="field-error" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Label fx:id="mapLatMinTextLabel" text="Lat min *:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                                                <TextField fx:id="mapLatMinField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <Label fx:id="mapLatMaxTextLabel" text="Lat max *:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                                                <TextField fx:id="mapLatMaxField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <Label fx:id="mapLonMinTextLabel" text="Lon min *:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                                                <TextField fx:id="mapLonMinField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                <Label fx:id="mapLonMaxTextLabel" text="Lon max *:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                                                <TextField fx:id="mapLonMaxField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                <Label fx:id="mapBoundsErrorLabel" styleClass="field-error" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                            </children>
+                                        </GridPane>
+                                        <Button fx:id="addMapRegionButton" mnemonicParsing="false" onAction="#onAddMapRegion" styleClass="primary-button" text="Agregar mapa" />
+                                        <Label fx:id="mapHintLabel" styleClass="hint-label" text="Usa exactamente el bounding box del script de apoyo para evitar errores de proyección." wrapText="true" />
+                                    </children>
+                                    <padding>
+                                        <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                                    </padding>
+                                </VBox>
+                            </items>
+                        </SplitPane>
+
+
+
+
