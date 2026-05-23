@@ -20,11 +20,17 @@ public class MapaDemoApp extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("views/MainLayout.fxml"));
+        Parent root = loader.load();
+        mapademo.controllers.MainLayoutController controller = loader.getController();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/resources/logo.png")));
-        Scene scene = new Scene(root);
-        stage.setTitle("Demo mapas - IPC");
+        Scene scene = new Scene(root, 1180, 760);
+        stage.setTitle("Running la Safor - IPC 2026");
         stage.setScene(scene);
+        controller.installKeyboardShortcuts(scene);
+        stage.setMinWidth(1180);
+        stage.setMinHeight(760);
+        stage.setOnCloseRequest(event -> controller.shutdown());
         stage.show();
     }
 
@@ -36,3 +42,4 @@ public class MapaDemoApp extends Application {
     }
     
 }
+
