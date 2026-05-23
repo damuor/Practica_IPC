@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<VBox fx:controller="mapademo.controllers.ProfileController" stylesheets="@../../resources/estilos.css" xmlns="http://javafx.com/javafx/21.0.10" xmlns:fx="http://javafx.com/fxml/1" spacing="12.0" styleClass="form-panel">
+                            <children>
+                                <HBox alignment="CENTER_LEFT" spacing="12.0">
+                                    <children>
+                                        <ImageView fx:id="profileAvatarImageView" fitHeight="72.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true" styleClass="profile-avatar-image" />
+                                        <VBox spacing="4.0">
+                                            <children>
+                                                <Label fx:id="profileTitleLabel" styleClass="section-title" text="Perfil de usuario" />
+                                                <Label fx:id="profileHintLabel" styleClass="hint-label" text="El nick no se puede modificar después del registro." wrapText="true" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <GridPane hgap="8.0" maxWidth="760.0" styleClass="form-grid" vgap="8.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints halignment="RIGHT" minWidth="120.0" prefWidth="120.0" />
+                                        <ColumnConstraints hgrow="ALWAYS" prefWidth="520.0" />
+                                    </columnConstraints>
+                                    <children>
+                                        <Label fx:id="profileNickTextLabel" text="Nick:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                                        <Label fx:id="profileNickLabel" text="-" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                                        <Label fx:id="profileEmailTextLabel" text="Email *:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                                        <TextField fx:id="profileEmailField" maxWidth="520.0" prefWidth="520.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Label fx:id="profileEmailErrorLabel" styleClass="field-error" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <Label fx:id="profilePasswordTextLabel" text="Contraseña nueva:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                                        <PasswordField fx:id="profilePasswordField" maxWidth="520.0" prefWidth="520.0" promptText="Dejar en blanco para mantener" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <Label fx:id="profilePasswordErrorLabel" styleClass="field-error" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <Label fx:id="profileBirthDateTextLabel" text="Fecha nacimiento *:" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                                            <GridPane.margin>
+                                                <Insets top="6.0" />
+                                            </GridPane.margin>
+                                        </Label>
+                                        <DatePicker fx:id="profileBirthDatePicker" maxWidth="160.0" prefWidth="160.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+                                            <GridPane.margin>
+                                                <Insets top="6.0" />
+                                            </GridPane.margin>
+                                        </DatePicker>
+                                        <Label fx:id="profileBirthDateErrorLabel" styleClass="field-error" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                        <Label fx:id="profileAvatarTextLabel" text="Avatar:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                                        <HBox maxWidth="520.0" prefWidth="520.0" spacing="6.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                                            <children>
+                                                <TextField fx:id="profileAvatarField" HBox.hgrow="ALWAYS" />
+                                                <Button fx:id="browseAvatarButton" mnemonicParsing="false" onAction="#onBrowseAvatar" styleClass="secondary-button" text="..." />
+                                            </children>
+                                        </HBox>
+                                        <Label fx:id="profileAvatarErrorLabel" styleClass="field-error" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                    </children>
+                                </GridPane>
+                                <HBox spacing="8.0">
+                                    <children>
+                                        <Button fx:id="saveProfileButton" mnemonicParsing="false" onAction="#onSaveProfile" styleClass="primary-button" text="Guardar perfil" />
+                                    </children>
+                                </HBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="12.0" left="12.0" right="12.0" top="12.0" />
+                            </padding>
+                        </VBox>
+
+
+
+
