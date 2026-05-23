@@ -1,0 +1,13 @@
+.DS_Store
+*.class
+*.log
+
+# NetBeans generated/user-local files
+**/build/
+**/dist/
+**/nbproject/private/
+
+# IDE/editor local state
+.idea/
+.vscode/
+*.swp
