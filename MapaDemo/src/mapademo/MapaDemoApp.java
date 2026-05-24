@@ -24,12 +24,12 @@ public class MapaDemoApp extends Application {
         Parent root = loader.load();
         mapademo.controllers.MainLayoutController controller = loader.getController();
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/resources/logo.png")));
-        Scene scene = new Scene(root, 1180, 760);
+        Scene scene = new Scene(root, 1440, 820);
         stage.setTitle("Running la Safor - IPC 2026");
         stage.setScene(scene);
         controller.installKeyboardShortcuts(scene);
-        stage.setMinWidth(1180);
-        stage.setMinHeight(760);
+        stage.setMinWidth(1320);
+        stage.setMinHeight(780);
         stage.setOnCloseRequest(event -> controller.shutdown());
         stage.show();
     }
@@ -42,4 +42,3 @@ public class MapaDemoApp extends Application {
     }
     
 }
-
