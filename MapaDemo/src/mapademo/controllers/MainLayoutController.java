@@ -243,6 +243,9 @@ public class MainLayoutController implements Initializable {
         activitiesController.removeActivityButton.disableProperty().bind(notLoggedIn.or(noActivitySelected));
         topBarController.removeActivityMenuItem.disableProperty().bind(notLoggedIn.or(noActivitySelected));
         activitiesController.speedOverlayCheckBox.disableProperty().bind(notLoggedIn.or(noActivitySelected));
+        activitiesController.zoomSlider.disableProperty().bind(notLoggedIn.or(noActivitySelected));
+        activitiesController.zoomInButton.disableProperty().bind(notLoggedIn.or(noActivitySelected));
+        activitiesController.zoomOutButton.disableProperty().bind(notLoggedIn.or(noActivitySelected));
         activitiesController.monthComboBox.disableProperty().bind(notLoggedIn);
 
         activitiesController.changeAnnotationColorButton.disableProperty().bind(notLoggedIn.or(noAnnotationSelected));
