@@ -41,6 +41,7 @@ public class SessionsController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        sessionTableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY_ALL_COLUMNS);
         sessionStartColumn.setCellValueFactory(data -> new ReadOnlyStringWrapper(mainController.formatDateTime(data.getValue().getStartTime())));
         sessionEndColumn.setCellValueFactory(data -> new ReadOnlyStringWrapper(mainController.formatDateTime(data.getValue().getEndTime())));
         sessionDurationColumn.setCellValueFactory(data -> new ReadOnlyStringWrapper(mainController.formatDuration(data.getValue().getDuration())));
@@ -93,4 +94,3 @@ public class SessionsController implements Initializable {
         sessionTotalAnnotationsLabel.setText(mainController.trf("sessions.totalAnnotations", annotations));
     }
 }
-
