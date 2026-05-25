@@ -1005,7 +1005,7 @@ public class ActivitiesController implements Initializable {
 
     // IA: adapta los atajos estandar de zoom del sistema al slider del mapa.
     private void handleZoomShortcut(KeyEvent event) {
-        if (!event.isShortcutDown()) {
+        if (!event.isShortcutDown() || currentProjection == null || zoomSlider.isDisabled()) {
             return;
         }
 
@@ -1030,6 +1030,10 @@ public class ActivitiesController implements Initializable {
     }
 
     private void changeZoom(double delta) {
+        if (currentProjection == null || zoomSlider.isDisabled()) {
+            return;
+        }
+
         double nextValue = Math.max(zoomSlider.getMin(), Math.min(zoomSlider.getMax(), zoomSlider.getValue() + delta));
         zoomSlider.setValue(nextValue);
         mainController.setStatus(mainController.trf("status.zoom", nextValue * 100.0));
@@ -1294,5 +1298,3 @@ public class ActivitiesController implements Initializable {
         }
     }
 }
-
-
