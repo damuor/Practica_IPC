@@ -28,8 +28,8 @@ public class MapaDemoApp extends Application {
         stage.setTitle("Running la Safor - IPC 2026");
         stage.setScene(scene);
         controller.installKeyboardShortcuts(scene);
-        stage.setMinWidth(1320);
-        stage.setMinHeight(780);
+        stage.setMinWidth(1440);
+        stage.setMinHeight(820);
         stage.setOnCloseRequest(event -> controller.shutdown());
         stage.show();
     }
